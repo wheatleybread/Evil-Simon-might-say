@@ -33,9 +33,15 @@ print(list[0])
 while True:
     value = potometer.read_u16()
     print (f"Pot: {value}")
-    redLed.on()
-    blueLed.on()
-    greenLed.on()
-    yellowLed.on()
+    if redButton.value() == True:
+        redLed.on()
+    elif blueButton.value() == True:
+        blueLed.on()
+    elif greenButton.value() == True:
+        greenLed.on()
+    elif yellowButton.value() == True:
+        print("bahh!!!!)")
+        yellowLed.on()
+    sleep(0.2)
     
 
