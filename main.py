@@ -12,6 +12,7 @@ redLed = Pin(11, Pin.OUT)
 blueLed = Pin(9, Pin.OUT)
 greenLed = Pin(10, Pin.OUT)
 yellowLed = Pin(12, Pin.OUT)
+potLed = Pin(8, Pin. OUT)
 
 y = 3
 
@@ -32,6 +33,7 @@ print(list[0])
 
 while True:
     value = potometer.read_u16()
+    potLed.on()
     print (f"Pot: {value}")
     if redButton.value() == True:
         redLed.on()
