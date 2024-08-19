@@ -23,5 +23,10 @@ for x in range(y):
     list.append(random.randint(1,4))
     sleep(0.5)
 
-print(list)
-print(list[0])
+while True:
+    redButton.on()
+    blueButton.on()
+    greenButton.on()
+    yellowButton.on()
+    
+
