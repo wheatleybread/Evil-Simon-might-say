@@ -8,10 +8,10 @@ greenButton = Pin(20, Pin.IN)
 yellowButton = Pin(18, Pin.IN)
 piezo = PWM(Pin(14))
 potometer = ADC(Pin(26))
-redLed = Pin(11)
-blueLed = Pin(9)
-greenLed = Pin(10)
-yellowLed = Pin(12)
+redLed = Pin(11, Pin.OUT)
+blueLed = Pin(9, Pin.OUT)
+greenLed = Pin(10, Pin.OUT)
+yellowLed = Pin(12, Pin.OUT)
 
 y = 3
 
@@ -33,3 +33,9 @@ print(list[0])
 while True:
     value = potometer.read_u16()
     print (f"Pot: {value}")
+    redLed.on()
+    blueLed.on()
+    greenLed.on()
+    yellowLed.on()
+    
+
