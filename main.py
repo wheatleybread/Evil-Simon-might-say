@@ -42,7 +42,7 @@ while True:
     elif greenButton.value() == True:
         greenLed.on()
     elif yellowButton.value() == True:
-        print("bahh!!!!)")
+        print("bahh!!!!")
         yellowLed.on()
     sleep(0.2)
     
