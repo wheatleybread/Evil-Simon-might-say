@@ -1,4 +1,4 @@
-import random
+from random import randint
 from time import sleep
 from machine import Pin, PWM, ADC
 
@@ -14,13 +14,15 @@ greenLed = Pin(10, Pin.OUT)
 yellowLed = Pin(12, Pin.OUT)
 potLed = Pin(8, Pin. OUT)
 
+
+
+choice = 0
 gamelist = []
 playerlist = []
 level = 0
 
 while True:
-    gamelist.append(random.randint(1,5))
-    sleep(0.5)
+    gamelist.append(randint(1,5))
     for x in range(level):
         choice = gamelist[level]
         if choice == 1:
@@ -40,7 +42,8 @@ while True:
             sleep(0.5)
             yellowLed.off()
         else:
-            yellowLed.on()
-            
+            potLed.on()
+    break
+
     
 
