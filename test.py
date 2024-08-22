@@ -24,12 +24,7 @@ piezo.freq(2000)
 # piezo.duty_u16(1000)
 
 
-for x in range(y):
-    list.append(random.randint(1,5))
-    sleep(0.5)
 
-print(list)
-print(list[0])
 
 while True:
     value = potometer.read_u16()
