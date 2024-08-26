@@ -1,6 +1,7 @@
 from random import randint
 from time import sleep
 from machine import Pin, PWM, ADC
+from piezoNotes import *
 
 redButton = Pin(2, Pin.IN)
 blueButton = Pin(0, Pin.IN)
@@ -13,7 +14,11 @@ blueLed = Pin(12, Pin.OUT)
 greenLed = Pin(15, Pin.OUT)
 yellowLed = Pin(13, Pin.OUT)
 
-
+def PlayNote(note, duration):
+    piezo.freq(notes[note])
+    piezo.duty_u16(1000)
+    sleep(duration)
+    piezo.duty_u16(0)
 
 length = 0
 choice = 0
@@ -30,22 +35,22 @@ while True:
         choice = gamelist[list]
         if choice == 1:
             redLed.on()
-            sleep(0.5)
+            PlayNote("C5", 0.4)
             redLed.off()
             list += 1
         elif choice == 2:
             blueLed.on()
-            sleep(0.5)
+            PlayNote("C3", 0.4)
             blueLed.off()
             list += 1
         elif choice == 3:
             greenLed.on()
-            sleep(0.5)
+            PlayNote("C6", 0.4)
             greenLed.off()
             list += 1
         elif choice == 4:
             yellowLed.on()
-            sleep(0.5)
+            PlayNote("C4", 0.4)
             yellowLed.off()
             list += 1
 
