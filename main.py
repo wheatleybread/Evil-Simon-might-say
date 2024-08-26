@@ -15,7 +15,7 @@ yellowLed = Pin(13, Pin.OUT)
 
 
 
-
+length = 0
 choice = 0
 gamelist = []
 playerlist = []
@@ -48,24 +48,26 @@ while True:
             sleep(0.5)
             yellowLed.off()
             list += 1
-    break   
 
-length = 1
-for x in range(level):
-    if redButton.value == True:
-        playerlist.append(1)
-        sleep(0.5)
-    elif blueButton.value == True:
-        playerlist.append(2)
-        sleep(0.5)
-    elif greenButton.value == True:
-        playerlist.append(3)
-        sleep(0.5)
-    elif yellowButton.value == True:
-        playerlist.append(4)
-        sleep(0.5)
-    length =+ 1
-    if playerlist[length] == gamelist[length]:
-        print('Yay!')
+
+
+    for x in range(level):
+        if redButton.value == True:
+            playerlist.append(1)
+            sleep(0.5)
+        elif blueButton.value == True:
+            playerlist.append(2)
+            sleep(0.5)
+        elif greenButton.value == True:
+            playerlist.append(3)
+            sleep(0.5)
+        elif yellowButton.value == True:
+            playerlist.append(4)
+            sleep(0.5)
+        else:
+            print('nay!')
+        if playerlist[length] == gamelist[length]:
+            print('Yay!')
+        length += 1
 
 
