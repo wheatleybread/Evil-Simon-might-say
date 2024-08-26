@@ -50,6 +50,7 @@ while True:
             list += 1
     break   
 
+length = 1
 for x in range(level):
     if redButton.value == True:
         playerlist.append(1)
@@ -63,6 +64,8 @@ for x in range(level):
     elif yellowButton.value == True:
         playerlist.append(4)
         sleep(0.5)
+    length =+ 1
+    if playerlist[length] == gamelist[length]:
+        print('Yay!')
 
-if playerlist == gamelist:
-    print('Yay!')
+
