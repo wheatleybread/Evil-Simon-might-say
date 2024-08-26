@@ -2,17 +2,17 @@ import random
 from time import sleep
 from machine import Pin, PWM, ADC
 
-redButton = Pin(17, Pin.IN)
-blueButton = Pin(19, Pin.IN)
-greenButton = Pin(20, Pin.IN)
-yellowButton = Pin(18, Pin.IN)
-piezo = PWM(Pin(14))
-potometer = ADC(Pin(26))
-redLed = Pin(11, Pin.OUT)
-blueLed = Pin(9, Pin.OUT)
-greenLed = Pin(10, Pin.OUT)
-yellowLed = Pin(12, Pin.OUT)
-potLed = Pin(8, Pin. OUT)
+redButton = Pin(2, Pin.IN)
+blueButton = Pin(0, Pin.IN)
+greenButton = Pin(3, Pin.IN)
+yellowButton = Pin(1, Pin.IN)
+piezo = PWM(Pin(20))
+
+redLed = Pin(14, Pin.OUT)
+blueLed = Pin(12, Pin.OUT)
+greenLed = Pin(15, Pin.OUT)
+yellowLed = Pin(13, Pin.OUT)
+
 
 y = 3
 
@@ -27,9 +27,7 @@ piezo.freq(2000)
 
 
 while True:
-    value = potometer.read_u16()
-    potLed.on()
-    print (f"Pot: {value}")
+    
     if redButton.value() == True:
         redLed.on()
     elif blueButton.value() == True:

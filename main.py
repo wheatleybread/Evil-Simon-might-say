@@ -2,24 +2,24 @@ from random import randint
 from time import sleep
 from machine import Pin, PWM, ADC
 
-redButton = Pin(17, Pin.IN)
-blueButton = Pin(19, Pin.IN)
-greenButton = Pin(20, Pin.IN)
-yellowButton = Pin(18, Pin.IN)
-piezo = PWM(Pin(14))
-potometer = ADC(Pin(26))
-redLed = Pin(11, Pin.OUT)
-blueLed = Pin(9, Pin.OUT)
-greenLed = Pin(10, Pin.OUT)
-yellowLed = Pin(12, Pin.OUT)
-potLed = Pin(8, Pin. OUT)
+redButton = Pin(2, Pin.IN)
+blueButton = Pin(0, Pin.IN)
+greenButton = Pin(3, Pin.IN)
+yellowButton = Pin(1, Pin.IN)
+piezo = PWM(Pin(20))
+
+redLed = Pin(14, Pin.OUT)
+blueLed = Pin(12, Pin.OUT)
+greenLed = Pin(15, Pin.OUT)
+yellowLed = Pin(13, Pin.OUT)
+
 
 
 
 choice = 0
 gamelist = []
 playerlist = []
-level = 0
+level = 1
 
 while True:
     gamelist.append(randint(1,5))
@@ -41,8 +41,7 @@ while True:
             yellowLed.on()
             sleep(0.5)
             yellowLed.off()
-        else:
-            potLed.on()
+       
     break
 
     
