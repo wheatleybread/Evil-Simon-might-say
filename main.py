@@ -30,6 +30,7 @@ list = 0
 while True:
     
     for x in range(level):
+        playerturn = False
         gamelist.append(randint(1,4))
         sleep(0.5)
         choice = gamelist[list]
@@ -53,26 +54,32 @@ while True:
             PlayNote("C4", 0.4)
             yellowLed.off()
             list += 1
+        playerturn = True
 
 
 
-    for x in range(level):
-        if redButton.value == True:
-            playerlist.append(1)
-            sleep(0.5)
-        elif blueButton.value == True:
-            playerlist.append(2)
-            sleep(0.5)
-        elif greenButton.value == True:
-            playerlist.append(3)
-            sleep(0.5)
-        elif yellowButton.value == True:
-            playerlist.append(4)
-            sleep(0.5)
-        else:
-            print('nay!')
+    for x in range(level):      
+        while playerturn == True:
+            if redButton.value() == True:
+                playerlist.append(1)
+                sleep(0.5)
+                playerturn = False
+            elif blueButton.value() == True:
+                playerlist.append(2)
+                sleep(0.5)
+                playerturn = False
+            elif greenButton.value() == True:
+                playerlist.append(3)
+                sleep(0.5)
+                playerturn = False
+            elif yellowButton.value() == True:
+                playerlist.append(4)
+                sleep(0.5)
+                playerturn = False
         if playerlist[length] == gamelist[length]:
-            print('Yay!')
+                print('Yay!')
         length += 1
+        playerturn = True
+
 
 
