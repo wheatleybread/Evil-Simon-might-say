@@ -27,15 +27,20 @@ def PlayNote(note, duration):
     sleep(duration)
     piezo.duty_u16(0)
 
+
+#Basic variables
 length = 0
 choice = 0
 playerlist = []
 gamelist = []
 level = 1
 list = 0
+
+#The game
 def game():
     global length, level, gamelist, playerlist, list, choice, x
 
+    #randomising buttons
     while True:
         for x in range(1):
             gamelist.append(randint(1,4))
@@ -67,7 +72,7 @@ def game():
             playerturn = True
 
 
-
+        #taking player input
         for x in range(level):      
             while playerturn == True:
                 if redButton.value() == True:
@@ -86,9 +91,11 @@ def game():
                     playerlist.append(4)
                     sleep(0.1)
                     playerturn = False
+            #if correct
             if playerlist[length] == gamelist[length]:
                     print('Yay!')
                     PlayNote("E5", 0.25)
+            #if incorrect
             else:
                 print ("Lost!")
                 PlayNote("B0", 0.5)
