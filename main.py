@@ -111,6 +111,7 @@ def game():
                 print("DIE")
                 gamelist = []
                 level = 0
+                break
             length += 1
             playerturn = True
         level += 1
