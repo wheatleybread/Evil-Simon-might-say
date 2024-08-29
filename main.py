@@ -3,17 +3,24 @@ from time import sleep
 from machine import Pin, PWM, ADC
 from piezoNotes import *
 
+
+# Defining buttons
 redButton = Pin(2, Pin.IN)
 blueButton = Pin(0, Pin.IN)
 greenButton = Pin(3, Pin.IN)
 yellowButton = Pin(1, Pin.IN)
+
+#Defining Piezo
 piezo = PWM(Pin(20))
 
+#Defining lights
 redLed = Pin(14, Pin.OUT)
 blueLed = Pin(12, Pin.OUT)
 greenLed = Pin(15, Pin.OUT)
 yellowLed = Pin(13, Pin.OUT)
 
+
+#Setting up the iezo
 def PlayNote(note, duration):
     piezo.freq(notes[note])
     piezo.duty_u16(1000)
@@ -83,9 +90,20 @@ def game():
                     print('Yay!')
                     PlayNote("E5", 0.25)
             else:
+                print ("Lost!")
                 PlayNote("B0", 0.5)
+                redLed.on()
+                blueLed.on()
+                greenLed.on()
+                yellowLed.on()
+                sleep(1)
+                redLed.off()
+                greenLed.off()
+                yellowLed.off()
+                blueLed.off()
                 print("DIE")
-                exit()
+                gamelist = []
+                level = 0
             length += 1
             playerturn = True
         level += 1
