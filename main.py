@@ -35,6 +35,7 @@ def game():
         for x in range(level):
             playerturn = False
             sleep(0.5)
+            print(list)
             choice = gamelist[list]
             if choice == 1:
                 redLed.on()
@@ -64,26 +65,32 @@ def game():
             while playerturn == True:
                 if redButton.value() == True:
                     playerlist.append(1)
-                    sleep(0.5)
+                    sleep(0.1)
                     playerturn = False
                 elif blueButton.value() == True:
                     playerlist.append(2)
-                    sleep(0.5)
+                    sleep(0.1)
                     playerturn = False
                 elif greenButton.value() == True:
                     playerlist.append(3)
-                    sleep(0.5)
+                    sleep(0.1)
                     playerturn = False
                 elif yellowButton.value() == True:
                     playerlist.append(4)
-                    sleep(0.5)
+                    sleep(0.1)
                     playerturn = False
             if playerlist[length] == gamelist[length]:
                     print('Yay!')
-                    PlayNote("E5", 0.4)
+                    PlayNote("E5", 0.25)
+            else:
+                PlayNote("B0", 0.5)
+                print("DIE")
+                exit()
             length += 1
             playerturn = True
         level += 1
+        length = 0
+        list = 0
 
 
 
