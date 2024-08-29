@@ -27,7 +27,7 @@ gamelist = []
 level = 1
 list = 0
 def game():
-    global length, level, gamelist, playerlist, list, choice
+    global length, level, gamelist, playerlist, list, choice, x
 
     while True:
         for x in range(1):
