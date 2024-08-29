@@ -36,15 +36,8 @@ gamelist = []
 level = 1
 list = 0
 
-#The game
-def game():
-    global length, level, gamelist, playerlist, list, choice, x
-
-    #randomising buttons
-    while True:
-        for x in range(1):
-            gamelist.append(randint(1,4))
-        for x in range(level):
+def sequencedisplay():
+    for x in range(level):
             playerturn = False
             sleep(0.5)
             print(list)
@@ -72,8 +65,8 @@ def game():
             playerturn = True
 
 
-        #taking player input
-        for x in range(level):      
+def playertime():
+    for x in range(level):      
             while playerturn == True:
                 if redButton.value() == True:
                     playerlist.append(1)
@@ -114,6 +107,22 @@ def game():
                 break
             length += 1
             playerturn = True
+
+#The game
+def game():
+    global length, level, gamelist, playerlist, list, choice, x
+
+    #randomising buttons
+    while True:
+        for x in range(1):
+        #adding random value to list
+            gamelist.append(randint(1,4))
+        #displaying input
+        sequencedisplay()
+
+        #taking player input
+        playertime()
+        #adding to level and resetting values
         level += 1
         length = 0
         list = 0
