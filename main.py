@@ -91,6 +91,7 @@ def game():
         level += 1
         length = 0
         list = 0
+        playerlist = []
 
 
 
