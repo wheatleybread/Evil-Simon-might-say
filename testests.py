@@ -21,4 +21,4 @@ bart.playertime()
 
 print(' Testing game')
 
-bart.game()ame()
+bart.game()
