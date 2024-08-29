@@ -27,62 +27,70 @@ gamelist = []
 level = 1
 list = 0
 def game():
-    global length, level, gamelist, playerlist, list, choice
+    global length, level, gamelist, playerlist, list, choice, x
 
-while True:
-    
-    for x in range(level):
-        playerturn = False
-        gamelist.append(randint(1,4))
-        sleep(0.5)
-        choice = gamelist[list]
-        if choice == 1:
-            redLed.on()
-            PlayNote("C5", 0.4)
-            redLed.off()
-            list += 1
-        elif choice == 2:
-            blueLed.on()
-            PlayNote("C3", 0.4)
-            blueLed.off()
-            list += 1
-        elif choice == 3:
-            greenLed.on()
-            PlayNote("C6", 0.4)
-            greenLed.off()
-            list += 1
-        elif choice == 4:
-            yellowLed.on()
-            PlayNote("C4", 0.4)
-            yellowLed.off()
-            list += 1
-        playerturn = True
+    while True:
+        for x in range(1):
+            gamelist.append(randint(1,4))
+        for x in range(level):
+            playerturn = False
+            sleep(0.5)
+            print(list)
+            choice = gamelist[list]
+            if choice == 1:
+                redLed.on()
+                PlayNote("C5", 0.4)
+                redLed.off()
+                list += 1
+            elif choice == 2:
+                blueLed.on()
+                PlayNote("C3", 0.4)
+                blueLed.off()
+                list += 1
+            elif choice == 3:
+                greenLed.on()
+                PlayNote("C6", 0.4)
+                greenLed.off()
+                list += 1
+            elif choice == 4:
+                yellowLed.on()
+                PlayNote("C4", 0.4)
+                yellowLed.off()
+                list += 1
+            playerturn = True
 
 
 
-    for x in range(level):      
-        while playerturn == True:
-            if redButton.value() == True:
-                playerlist.append(1)
-                sleep(0.5)
-                playerturn = False
-            elif blueButton.value() == True:
-                playerlist.append(2)
-                sleep(0.5)
-                playerturn = False
-            elif greenButton.value() == True:
-                playerlist.append(3)
-                sleep(0.5)
-                playerturn = False
-            elif yellowButton.value() == True:
-                playerlist.append(4)
-                sleep(0.5)
-                playerturn = False
-        if playerlist[length] == gamelist[length]:
-                print('Yay!')
-        length += 1
-        playerturn = True
-
+        for x in range(level):      
+            while playerturn == True:
+                if redButton.value() == True:
+                    playerlist.append(1)
+                    sleep(0.1)
+                    playerturn = False
+                elif blueButton.value() == True:
+                    playerlist.append(2)
+                    sleep(0.1)
+                    playerturn = False
+                elif greenButton.value() == True:
+                    playerlist.append(3)
+                    sleep(0.1)
+                    playerturn = False
+                elif yellowButton.value() == True:
+                    playerlist.append(4)
+                    sleep(0.1)
+                    playerturn = False
+            if playerlist[length] == gamelist[length]:
+                    print('Yay!')
+                    PlayNote("E5", 0.25)
+            else:
+                PlayNote("B0", 0.5)
+                print("DIE")
+                exit()
+            length += 1
+            playerturn = True
+        level += 1
+        length = 0
+        list = 0
 
 
 
