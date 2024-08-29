@@ -82,10 +82,10 @@ def game():
             if playerlist[length] == gamelist[length]:
                     print('Yay!')
                     PlayNote("E5", 0.25)
-            else:
-                PlayNote("B0", 0.5)
-                print("DIE")
-                exit()
+    #        else:
+     #           PlayNote("B0", 0.5)
+     #           print("DIE")
+     #           exit()
             length += 1
             playerturn = True
         level += 1
